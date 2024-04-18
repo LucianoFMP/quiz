@@ -45,7 +45,7 @@ opcoes: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
 resposta: "Brasília"
 },
 {
-pergunta: "Quem escreveu &#39;Dom Quixote&#39;?",
+pergunta: "Quem escreveu "Dom Quixote"?",
 opcoes: ["Machado de Assis", "Cervantes", "Shakespeare", "Garcia Lorca"],
 resposta: "Cervantes"
 },
@@ -54,7 +54,7 @@ pergunta: "Quantos planetas fazem parte do sistema solar?",
 opcoes: ["7", "8", "9", "10"],
 resposta: "8"
 }
-];
+],
 let perguntaAtual = 0;
 function carregarPergunta() {
 const perguntaElemento = document.getElementById("pergunta");
@@ -76,7 +76,7 @@ opcoesElemento.appendChild(labelElemento);
 }
 function verificarResposta() {
 const opcoesSelecionadas =
-document.querySelectorAll(&#39;input[name="opcao"]:checked&#39;);
+document.querySelectorAll("input[name="opcao"]:checked");
 if (opcoesSelecionadas.length === 0) {
 
 alert("Por favor, selecione uma opção.");

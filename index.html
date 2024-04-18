@@ -1,10 +1,10 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;pt-br&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;Jogo Quiz&lt;/title&gt;
-&lt;style&gt;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo Quiz</title>
+<style>
 body {
 font-family: Arial, sans-serif;
 text-align: center;
@@ -26,49 +26,49 @@ margin: 10px auto;
 margin-top: 20px;
 font-weight: bold;
 }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;quiz-container&quot;&gt;
-&lt;h1&gt;Jogo Quiz&lt;/h1&gt;
-&lt;div id=&quot;pergunta&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;opcoes&quot; class=&quot;opcao&quot;&gt;&lt;/div&gt;
-&lt;button onclick=&quot;verificarResposta()&quot;&gt;Verificar Resposta&lt;/button&gt;
-&lt;div id=&quot;resultado&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+</style>
+</head>
+<body>
+<div class="quiz-container">
+<h1>Jogo Quiz</h1>
+<div id="pergunta"></div>
+<div id="opcoes" class="opcao"></div>
+<button onclick="verificarResposta()">Verificar Resposta</button>
+<div id="resultado"></div>
+</div>
 
-&lt;script&gt;
+<script>
 const perguntas = [
 {
-pergunta: &quot;Qual é a capital do Brasil?&quot;,
-opcoes: [&quot;Rio de Janeiro&quot;, &quot;São Paulo&quot;, &quot;Brasília&quot;, &quot;Salvador&quot;],
-resposta: &quot;Brasília&quot;
+pergunta: "Qual é a capital do Brasil?",
+opcoes: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+resposta: "Brasília"
 },
 {
-pergunta: &quot;Quem escreveu &#39;Dom Quixote&#39;?&quot;,
-opcoes: [&quot;Machado de Assis&quot;, &quot;Cervantes&quot;, &quot;Shakespeare&quot;, &quot;Garcia Lorca&quot;],
-resposta: &quot;Cervantes&quot;
+pergunta: "Quem escreveu &#39;Dom Quixote&#39;?",
+opcoes: ["Machado de Assis", "Cervantes", "Shakespeare", "Garcia Lorca"],
+resposta: "Cervantes"
 },
 {
-pergunta: &quot;Quantos planetas fazem parte do sistema solar?&quot;,
-opcoes: [&quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;],
-resposta: &quot;8&quot;
+pergunta: "Quantos planetas fazem parte do sistema solar?",
+opcoes: ["7", "8", "9", "10"],
+resposta: "8"
 }
 ];
 let perguntaAtual = 0;
 function carregarPergunta() {
-const perguntaElemento = document.getElementById(&quot;pergunta&quot;);
-const opcoesElemento = document.getElementById(&quot;opcoes&quot;);
+const perguntaElemento = document.getElementById("pergunta");
+const opcoesElemento = document.getElementById("opcoes");
 perguntaElemento.textContent = perguntas[perguntaAtual].pergunta;
-opcoesElemento.innerHTML = &quot;&quot;;
-perguntas[perguntaAtual].opcoes.forEach(opcao =&gt; {
-const opcaoElemento = document.createElement(&quot;input&quot;);
-opcaoElemento.type = &quot;radio&quot;;
-opcaoElemento.name = &quot;opcao&quot;;
+opcoesElemento.innerHTML = "";
+perguntas[perguntaAtual].opcoes.forEach(opcao => {
+const opcaoElemento = document.createElement("input");
+opcaoElemento.type = "radio";
+opcaoElemento.name = "opcao";
 opcaoElemento.value = opcao;
-opcaoElemento.classList.add(&quot;opcao&quot;);
+opcaoElemento.classList.add("opcao");
 opcaoElemento.required = true;
-const labelElemento = document.createElement(&quot;label&quot;);
+const labelElemento = document.createElement("label");
 labelElemento.textContent = opcao;
 opcoesElemento.appendChild(opcaoElemento);
 opcoesElemento.appendChild(labelElemento);
@@ -76,29 +76,29 @@ opcoesElemento.appendChild(labelElemento);
 }
 function verificarResposta() {
 const opcoesSelecionadas =
-document.querySelectorAll(&#39;input[name=&quot;opcao&quot;]:checked&#39;);
+document.querySelectorAll(&#39;input[name="opcao"]:checked&#39;);
 if (opcoesSelecionadas.length === 0) {
 
-alert(&quot;Por favor, selecione uma opção.&quot;);
+alert("Por favor, selecione uma opção.");
 return;
 }
 const respostaUsuario = opcoesSelecionadas[0].value;
 const respostaCorreta = perguntas[perguntaAtual].resposta;
-const resultadoElemento = document.getElementById(&quot;resultado&quot;);
+const resultadoElemento = document.getElementById("resultado");
 if (respostaUsuario === respostaCorreta) {
-resultadoElemento.textContent = &quot;Resposta correta!&quot;;
+resultadoElemento.textContent = "Resposta correta!";
 } else {
 resultadoElemento.textContent = `Resposta incorreta. A resposta correta é:
 ${respostaCorreta}`;
 }
 perguntaAtual++;
-if (perguntaAtual &lt; perguntas.length) {
+if (perguntaAtual < perguntas.length) {
 carregarPergunta();
 } else {
-resultadoElemento.textContent += &quot; Fim do Jogo!&quot;;
+resultadoElemento.textContent += " Fim do Jogo!";
 }
 }
 carregarPergunta();
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+</script>
+</body>
+</html>

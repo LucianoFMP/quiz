@@ -6,7 +6,7 @@
 <title>Jogo Quiz</title>
 <style>
 body {
-font-family: Arial, sans-serif;
+font-family: Georgia, sans-serif;
 text-align: center;
 margin-top: 50px;
 }
@@ -40,21 +40,21 @@ font-weight: bold;
 <script>
 const perguntas = [
 {
-pergunta: "Qual é a capital do Brasil?",
-opcoes: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
-resposta: "Brasília"
+pergunta: "Qual é a banda de rock preferida do Luciano?",
+opcoes: ["Pink Floyd", "Queen", "Led Zeppelin", "Beatles"],
+resposta: "Led Zeppelin"
 },
 {
-pergunta: "Quem escreveu "Dom Quixote"?",
-opcoes: ["Machado de Assis", "Cervantes", "Shakespeare", "Garcia Lorca"],
-resposta: "Cervantes"
+pergunta: "Quem compôs /"Stairway to Heaven"/?",
+opcoes: ["Pink Floyd", "Queen", "Led Zeppelin", "Beatles"],
+resposta: "Led Zeppelin"
 },
 {
-pergunta: "Quantos planetas fazem parte do sistema solar?",
-opcoes: ["7", "8", "9", "10"],
+pergunta: "Qual o nome do famoso dirigível que explodiu em 1937?",
+opcoes: ["14-Bis", "Flyer I", "Enola Gay", "Zeppelin Hindenburg"],
 resposta: "8"
 }
-],
+];
 let perguntaAtual = 0;
 function carregarPergunta() {
 const perguntaElemento = document.getElementById("pergunta");
@@ -75,10 +75,8 @@ opcoesElemento.appendChild(labelElemento);
 });
 }
 function verificarResposta() {
-const opcoesSelecionadas =
-document.querySelectorAll("input[name="opcao"]:checked");
+const opcoesSelecionadas = document.querySelectorAll("input[name=\"opcao\"]:checked");
 if (opcoesSelecionadas.length === 0) {
-
 alert("Por favor, selecione uma opção.");
 return;
 }
